@@ -67,6 +67,7 @@ create or replace function public.current_org_id()
 returns uuid
 language sql
 stable
+security definer
 as $$
   select organization_id from public.profiles where id = auth.uid()
 $$;
